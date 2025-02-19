@@ -1,0 +1,18 @@
+# Ignorar certificados SSL
+/web/certs/
+
+# Ignorar archivos de entorno con credenciales
+.env
+
+# Ignorar archivos temporales y de logs
+*.log
+*.tmp
+
+# Ignorar dependencias y archivos generados por Docker
+node_modules/
+vendor/
+.dockerignore
+dist/
+
+# Ignorar volúmenes de bases de datos
+/database_data/
