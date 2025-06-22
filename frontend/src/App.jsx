@@ -3,18 +3,17 @@ import "./App.css";
 function App() {
     const [message, setMessage] = useState("");
     useEffect(() => {
-        fetch("/api/jll")
+        fetch("/api/texts")
             .then((res) => res.json())
             .then((data) => setMessage(data.message));
     }, []);
     return (
         <div>
-            <h1>Frontend en React de Jaime Lozano Lozano</h1>
+            <h1>React Frontend Application</h1>
             <p>
-                Esta aplicación se conecta al backend de Symfony pidiéndole una
-                respuesta
+                This application connects to the Symfony backend requesting a response
             </p>
-            <p>respuesta del Backend: {message || "Esperando respuesta de JLL-server..."}</p>
+            <p>Backend response: {message || "Waiting for server response..."}</p>
         </div>
     );
 }

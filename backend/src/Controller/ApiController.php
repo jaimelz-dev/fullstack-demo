@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class JLL_Controller extends AbstractController
+class ApiController extends AbstractController
 {
     private Connection $connection;
 
@@ -16,18 +16,16 @@ class JLL_Controller extends AbstractController
         $this->connection = $connection;
     }
 
-    #[Route('/api/jll', name: 'get_jll')]
+    #[Route('/api/texts', name: 'get_texts')]
     public function index(): JsonResponse
     {
-        // Consulta para recuperar el primer mensaje de la tabla "secretosIN"
-        $sql = 'SELECT fraseJLL FROM secretosJLL LIMIT 1';
+        $sql = 'SELECT content FROM texts LIMIT 1';
         $result = $this->connection->fetchOne($sql);
 
-        // Si no hay mensaje en la BD, devolver un mensaje de error
         if (!$result) {
             return $this->json(['message' => 'No messages found in the database!']);
         } else {
-            $result = 'JLL Operativo, respuesta de la BD: ' . $result;
+            $result = 'System operational, database response: ' . $result;
             return $this->json(['message' => $result]);
         }
     }

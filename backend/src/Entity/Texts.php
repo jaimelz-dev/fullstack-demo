@@ -5,8 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: "secretosJLL")]
-class TablaJLL
+#[ORM\Table(name: "texts")]
+class Text
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -14,21 +14,21 @@ class TablaJLL
     private int $id;
 
     #[ORM\Column(type: "string", length: 255)]
-    private string $fraseJLL;
+    private string $content;
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getFraseJLL(): string
+    public function getContent(): string
     {
-        return $this->fraseJLL;
+        return $this->content;
     }
 
-    public function setFraseJLL(string $fraseJLL): self
+    public function setContent(string $content): self
     {
-        $this->fraseJLL = $fraseJLL;
+        $this->content = $content;
         return $this;
     }
 }

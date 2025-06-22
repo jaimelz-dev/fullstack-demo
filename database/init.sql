@@ -1,6 +1,6 @@
-CREATE TABLE secretosJLL (
+CREATE TABLE texts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fraseJLL VARCHAR(255) NOT NULL
+    content VARCHAR(255) NOT NULL
 );
 
-INSERT INTO secretosJLL (fraseJLL) VALUES ('La base de datos responde, buenos dias Jaime Lozano Lozano');
+INSERT INTO texts (content) VALUES ('Database is responding, system operational');

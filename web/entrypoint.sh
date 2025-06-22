@@ -1,14 +1,12 @@
 #!/bin/sh
 set -e
 
-# Verifica si el certificado ya existe
 if [ ! -f /etc/nginx/certs/selfsigned.crt ]; then
-    echo "Generando certificado autofirmado..."
+    echo "Generate autosigned cert..."
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -subj "/C=ES/ST=Granada/L=Granada/O=IESHLANZ/OU=DAWT/CN=Jaime Lozano Lozano/emailAddress=alozloz954@g.educaand.es" \
+        -subj "/C=ES/ST=Málaga/L=Almáchar/O=JAIMELZ/OU=DEV/CN=Jaime Lozano Lozano/emailAddress=jaime.lozano.dev@gmail.com" \
         -keyout /etc/nginx/certs/selfsigned.key \
         -out /etc/nginx/certs/selfsigned.crt
 fi
 
-# Ejecuta Nginx en primer plano
 exec nginx -g "daemon off;"
